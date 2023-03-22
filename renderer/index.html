@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/style.css">  -->
+    <title>AstroTrackr</title>
+    <style>
+    body {
+        background-color: #070A20;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        font-size: 40px;
+        margin: 0;
+        text-align: center;
+        padding: 10px;
+        color: #FFD700;
+      }
+      p {
+        font-size: 24px;
+        text-align: center;
+        margin: 10px;
+        padding-bottom: 10px;
+      }
+      button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: #e3e3e3;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    #loc-message-success {
+        color: #4CAF50;
+    }
+    #loc-message-fail {
+        color: #e92a2a
+    }
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 18px;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h1>AstroTrackr</h1>
+        <p id = "curr-lat">Current Latitude : </p>
+        <p id = "curr-lon">Current Longitude : </p>
+        <button id = "get-location" type = "button">Get Location</button>
+        <p id = "loc-message-success"></p>
+        <p id = "loc-message-fail"></p>
+    </div>
+    
+    <script src = "../latlon.js"></script>
+</body>
+</html>
