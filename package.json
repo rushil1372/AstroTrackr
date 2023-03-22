@@ -17,5 +17,8 @@
   },
   "win": {
     "icon": "./images/test4.jpg"
+  },
+  "dependencies": {
+    "electron-packager": "^17.1.1"
   }
 }

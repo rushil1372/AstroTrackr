@@ -1,5 +1,5 @@
-test_lat = 19
-test_lon = 72
+// test_lat = 19
+// test_lon = 72
 
 const notification = {
     title: "ISS Alert",
@@ -33,21 +33,21 @@ function displayData(data) {
     document.getElementById('curr-lon').innerHTML = "Current Longitude : " + data.iss_position.longitude + " °E";
     console.log("ping-normal");
 
-    // if(between(lat_u, data.iss_position.latitude - 6, data.iss_position.latitude + 6) 
-    //     && between(lon_u, data.iss_position.longitude - 4, data.iss_position.longitude + 4)) {
-    //         const myNotification = new window.Notification(notification.title, notification);
-    //         console.log("notify");
-    //     }
-
-        if(between(lat_u, test_lat - 6, test_lat + 6) 
-        && between(lon_u, test_lon - 4, test_lon + 4)) {
-            if(notif_flag == 0){
-                const myNotification = new window.Notification(notification.title, notification);
-                console.log("notify");
-            } else {
-                console.log("cancel-notify")
-            }
+    if(between(lat_u, data.iss_position.latitude - 6, data.iss_position.latitude + 6) 
+        && between(lon_u, data.iss_position.longitude - 4, data.iss_position.longitude + 4)) {
+            const myNotification = new window.Notification(notification.title, notification);
+            console.log("notify");
         }
+
+        // if(between(lat_u, test_lat - 6, test_lat + 6) 
+        // && between(lon_u, test_lon - 4, test_lon + 4)) {
+        //     if(notif_flag == 0){
+        //         const myNotification = new window.Notification(notification.title, notification);
+        //         console.log("notify");
+        //     } else {
+        //         console.log("cancel-notify")
+        //     }
+        // }
 
     // latitude -> 2
     // longitude -> 1
