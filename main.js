@@ -4,6 +4,8 @@ const { app, BrowserWindow, Menu, Tray, systemPreferences } = require('electron'
 let mainWindow, aboutWindow
 let tray = null;
 
+process.env.NODE_ENV = 'production'
+
 // var notif_flag = true;
 // function flipNotif() {
 //     if(notif_flag) {
