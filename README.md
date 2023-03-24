@@ -6,9 +6,9 @@ AstroTrackr is a desktop app that notifies users of the current position of the 
 
 - [x] Real-time updates of the ISS location
 - [x] Notifications on the desktop when the ISS is passing over your location
-- [ ] UI Improvements
 - [ ] Option to enable/disable notifications
 - [ ] Option to minimize the app to the system tray
+- [ ] UI Improvements
 
 ## Installation
 
