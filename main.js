@@ -4,14 +4,16 @@ const { app, BrowserWindow, Menu, Tray, systemPreferences } = require('electron'
 let mainWindow, aboutWindow
 let tray = null;
 
-process.env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'production'
 
 // var notif_flag = true;
 // function flipNotif() {
 //     if(notif_flag) {
-//         systemPreferences.unsubscribeNotification();
+//         app.disableNotifications();
+//         console.log("Noti switched off");
 //     } else {
-//         systemPreferences.subscribeNotification();
+//         app.enableNotifications();
+//         console.log("Notif switched on");
 //     }
 // }
 
@@ -23,7 +25,7 @@ function createMainWindow() {
         icon: path.join(__dirname, './images/test4.jpg')
     });
 
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     mainWindow.loadFile(path.join(__dirname, './renderer/index.html'));
 }

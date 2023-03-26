@@ -1,6 +1,23 @@
 // test_lat = 19
 // test_lon = 72
 
+var notif_flag = 1
+
+// Add p tag for notif
+
+const notificationToggle = document.querySelector('#notificationToggle');
+notificationToggle.addEventListener("change", function() {
+    if(this.checked) {
+        console.log("Notification Enabled");
+        notif_flag = 1;
+        document.getElementById('notif-message').innerHTML = "Notifications are Enabled";
+    } else {
+        console.log("Notification Disabled");
+        notif_flag = 0;
+        document.getElementById('notif-message').innerHTML = "Notifications are Disabled";
+    }
+});
+
 const notification = {
     title: "ISS Alert",
     body: "The ISS just flew over you!",
@@ -10,8 +27,6 @@ const notification = {
 // User Location Requirements  
 
 var lat_u, lon_u;
-
-var notif_flag = 0;
 
 let button = document.getElementById("get-location");
 button.addEventListener("click", fetchLocation);
@@ -33,24 +48,18 @@ function displayData(data) {
     document.getElementById('curr-lon').innerHTML = "Current Longitude : " + data.iss_position.longitude + " °E";
     console.log("ping-normal");
 
-    if(between(lat_u, data.iss_position.latitude - 6, data.iss_position.latitude + 6) 
-        && between(lon_u, data.iss_position.longitude - 4, data.iss_position.longitude + 4)) {
+    if(notif_flag == 1) {
+        if(between(lat_u, data.iss_position.latitude - 3, data.iss_position.latitude + 3) 
+        && between(lon_u, data.iss_position.longitude - 2, data.iss_position.longitude + 2)) {
             const myNotification = new window.Notification(notification.title, notification);
             console.log("notify");
         }
 
-        // if(between(lat_u, test_lat - 6, test_lat + 6) 
-        // && between(lon_u, test_lon - 4, test_lon + 4)) {
-        //     if(notif_flag == 0){
-        //         const myNotification = new window.Notification(notification.title, notification);
-        //         console.log("notify");
-        //     } else {
-        //         console.log("cancel-notify")
-        //     }
+        // if(between(lat_u, test_lat - 6, test_lat + 6) && between(lon_u, test_lon - 4, test_lon + 4)) {
+        //     const myNotification = new window.Notification(notification.title, notification);
+        //     console.log("notify");
         // }
-
-    // latitude -> 2
-    // longitude -> 1
+    }
 }
 
 setInterval(fetchData, 10000);
@@ -74,3 +83,19 @@ function displayLoc(data) {
         document.getElementById('loc-message-fail').innerHTML = "Unable to Grab User Location";
     }
 }
+
+
+
+// Testing Code 
+        //      if(between(lat_u, test_lat - 6, test_lat + 6) 
+        // && between(lon_u, test_lon - 4, test_lon + 4)) {
+        //     if(notif_flag == 0){
+        //         const myNotification = new window.Notification(notification.title, notification);
+        //         console.log("notify");
+        //     } else {
+        //         console.log("cancel-notify")
+        //     }
+        // }
+
+        // latitude -> 2
+        // longitude -> 1
