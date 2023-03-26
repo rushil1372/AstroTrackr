@@ -20,7 +20,3 @@ AstroTrackr is a desktop app that notifies users of the current position of the 
 ## Usage
 
 To use AstroTrackr, simply launch the app and allow it to access your location. The app will display the current location of the ISS and will notify you when it passes over your location. You can enable/disable notifications using the toggle switch in the menu bar.
-
-## License
-
-AstroTrackr is released under the MIT License.
